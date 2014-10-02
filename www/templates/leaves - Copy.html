@@ -1,0 +1,76 @@
+<ion-view title="Leaves"  ng-controller="LeavesCtrl as vm">
+  <ion-nav-buttons side="right">
+      <a ui-sref="app.datepicker" class="button button-icon ion-plus-round"></a>
+     <!-- <button class="button" ng-click="doSomething()">
+        New Leave
+      </button> -->
+    </ion-nav-buttons>
+  
+    <ion-content> 
+
+    <ion-list>
+          <ion-item ng-repeat="leave in vm.leaves" href="#/app/leave/{{leave._id}}" class="item-text-wrap">
+            <!-- <img class="post-profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png"> -->
+            <div class="request-time">{{leave.requestedOn | relativets }} ago</div>
+            <div class="request-status-list">{{leave.status}} </div>
+            <div>
+            <b>{{leave.leaveType}}</b>  &nbsp;                 
+            <span class="small">On {{leave.fromDate | date : 'dd-MMM'}}</span> &nbsp;
+            <span class="small">for {{leave.student.name}}, {{leave.student.class}}</span>
+
+
+        <!-- 
+          <div ng-if="vm.loggedIn_UserId == leave.token">
+        -->
+            <div class="action">
+              <i class="icon ion-chevron-right icon-accessory"></i>
+              <!-- <button class="button button-small button-light">Cancel</button>  -->
+            </div>
+        <!--  </div>
+        -->
+           
+          <!--  <div class="row"> -->
+            <!--  <div class="col col-90">  -->
+                <div ng-repeat="comment in leave.comments | orderBy : '-date' | limitTo :1 ">
+                  <span class="small-user">
+                    {{comment.name}} Said                  
+                  </span>
+                  &nbsp; &nbsp;
+                  <span class="small">{{comment.date | relativets }} ago</span>
+                  <p>
+                    <span class="leave-content">
+                      {{comment.text}}
+                    </span>
+                  </p>
+                </div>
+                
+                <div ng-hide="leave.comments">
+                  <span class="small-user">
+                    {{leave.requestor}} Said                  
+                  </span>
+                  &nbsp; &nbsp;
+                  <span class="small">{{leave.requestedOn | relativets }} ago</span>
+                  <p>
+                    <span class="leave-content">
+                      {{leave.reason}}
+                    </span>                  
+                  </p>
+                </div>
+              
+            <!--  </div> -->
+              <!--
+                <div class="action">
+                  <span class="small-status-right">{{leave.status}}</span>                
+                  </p>
+                  <p>                
+                    <button class="button button-small button-dark">Cancel</button>
+                  </p>                
+                </div>
+              -->
+           <!-- </div> -->
+            
+          </ion-item>
+        </ion-list>
+  </ion-content> 
+</ion-view>
+

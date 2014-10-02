@@ -1,0 +1,129 @@
+<ion-view title="Leave Request" ng-controller="LeaveDetailCtrl as vm">
+
+  <ion-content has-header="true" padding="true">
+    <div class="card">
+      <div class="item item-avatar">
+        <img src="../img/photo.png">
+        <h>{{vm.leave.student.name}}, {{vm.leave.student.class}}</h2>
+        <p>
+          {{vm.leave.fromDate | date : 'MMM-dd'}} to {{vm.leave.toDate | date : 'MMM-dd'}}, {{vm.leave.leaveType}}
+        </p>
+        <div class="request-time">
+          {{vm.leave.requestedOn | relativets }} ago
+        </div>
+        <div class="request-status">
+          {{vm.leave.status}}
+        </div>
+      </div>
+      
+      <div class="item item-text-wrap">
+        <div class="comments-user">Reason</div>
+        <span class="small-normal">
+            {{vm.leave.reason}}
+        </span>
+      </div>
+
+      <div ng-show="vm.leave.comments">
+        <div class="item item-divider">
+          Comments
+        </div>
+      </div>
+
+
+<!--
+      <ol class="messages">
+          <li ng-repeat="comment in vm.leave.comments | orderBy: '-date'" class="item item-text-wrap">
+            <p>
+            <span class="request-time">{{comment.date | relativets }} ago</span>
+            <span class="comments-user">{{comment.name}} said </span>
+            <span class="small-normal">
+            {{comment.text}}
+            </span>
+
+            </p>
+          </li>
+      </ol>
+-->
+
+
+      <div class="list">        
+        <div ng-repeat="comment in vm.leave.comments | orderBy: '-date'" class="item item-text-wrap">
+          <div class="request-time">{{comment.date | relativets }} ago</div>
+          <div class="comments-user">{{comment.name}} said </div>
+          <span class="small-normal">
+            {{comment.text}}
+          </span>
+        </div>
+        {{vm.UserRole}}
+        <div ng-show="vm.leave.status === 'Pending'">
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <textarea class="item-input-wrapper" placeholder="Comments here..."
+                ng-model="vm.newComment"></textarea>
+          </label>
+          <button class="button button-small button-positive" ng-click="vm.submitComment()">Submit</button>
+        </div>
+        </div>
+
+      </div>   
+
+    </div>
+
+
+
+      <!--
+            <div class="item">
+                <h2>Naveen (Father) requesed 'Casual Leave'</h2>
+                <p>for Saahithi E, UKG</p>
+            </div>
+            <div class="item item-image">
+                <img src="https://graph.facebook.com/{{ user.id }}/picture?width=400&height=400" />
+            </div>
+            <a class="item item-icon-left assertive" href="#/app/person/{{user.id}}/mutualfriends">
+                <i class="icon ion-ios7-people"></i>
+                Mutual Friends
+            </a>
+        </div>
+      -->
+  </ion-content>
+
+  <div ng-show="vm.leave.status == 'Pending' &&  vm.userRole == 'Approver' " class="bar bar-footer bar-positive">
+    <div class="button-bar">
+      <a class="button icon-left button-assertive ion-ios7-close-outline" 
+            ng-click="vm.showRejectConfirm()">
+        Reject
+      </a>
+
+      <a class="button icon-left button-balanced ion-ios7-checkmark-outline" 
+              ng-click="vm.showApproveConfirm()">
+        Approve
+      </a>
+    </div>
+    <!--
+    <button class="button icon-left button-assertive ion-ios7-close-outline" 
+            ng-click="vm.showCancelConfirm()">
+      Cancel
+    </button>
+
+    <buttonclass="button icon-left button-balanced ion-ios7-checkmark-outline" 
+            ng-click="vm.showApproveConfirm()">
+      Approve
+    </button>
+    -->
+  </div>
+
+  <div ng-show="vm.leave.status == 'Pending' &&  vm.userRole == 'Parent' " class="bar bar-footer bar-positive">
+    <div class="button-bar">
+      <a class="button icon-left button-assertive ion-ios7-close-outline" 
+            ng-click="vm.showCancelConfirm()">
+        Cancel
+      </a>  
+    </div>
+   <!-- <button class="button icon-left button-assertive ion-ios7-close-outline" 
+            ng-click="vm.showCancelConfirm()">
+      Cancel
+    </button> -->
+  </div>
+
+
+</ion-view>

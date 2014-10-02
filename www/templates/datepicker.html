@@ -1,0 +1,139 @@
+<ion-view title="Leave Request">	
+	<ion-content class="has-header">
+    
+    <!-- <label class="item item-input">
+      <span class="input-label">From Date</span>
+      <input type="date">
+      <span class="input-label">To Date</span>
+      <input type="date">
+    </label>
+  -->
+    
+    <form class="list" ng-show="showForm">
+     <div class="padding">
+      <div class="list">         
+       <label class="item item-input">                
+           <span class="input-label">I want to request </span>            
+            <input type="text" 
+                   placeholder="Select Leave Type"
+                   ng-model="data.leaveType"
+                   name="leaveType" 
+                   ng-click="chooseLeaveType()" required>
+          </label>
+          
+          <label class="item item-input">   
+            <span class="input-label"> for </span>
+	          <input type="text" 
+              placeholder="Select Student"
+              ng-model="data.student.name"
+              name="student" 
+              ng-click="chooseStudent()" required>
+	        </label>
+          
+          <label class="item item-input">
+            <span class="input-label"> from </span>
+	          <input type="text" 
+	          placeholder="Select Date"
+	          ng-model="data.fromDate" 
+	          name="datepicker" 
+	          ng-click="opendateModal(1)" required>
+	        </label>
+          	        
+			    <label class="item item-input">  
+            <span class="input-label"> to </span>
+	          <input type="text" 
+	          placeholder="Select Date"
+	          ng-model="data.toDate" 
+	          name="datepicker" 
+	          ng-click="opendateModal(2)" required>
+	        </label>
+        <span class="input-label"> due to </span>
+          <label class="item item-input">              
+	          <textarea id="reason" 
+                      ng-keypress="autoExpand()" 
+                      ng-model="data.reason" 
+                      placeholder="Specify Reason" required></textarea>
+	        </label>        
+       </div>        
+    </div>
+    
+    <div class="padding">
+      <button class="button button-full button-positive" ng-click="submitLeave()">Submit</button>
+    </div>
+   </form>
+    
+    <div ng-hide="showForm">
+      <!-- <pre ng-bind="data | json"></pre> -->
+      <a href="#/app/leaves">View Leaves</a>
+    </div>
+
+    <!--
+      <div class="padding">                
+        <div class="list">          
+          <div class="card">
+            <label class="item item-input">
+              <span class="input-label">Leave Type</span>
+              <input type="text" 
+                placeholder="Choose Leave"
+                ng-model="data.leave"
+                name="leave" 
+                ng-click="chooseLeave()">
+            </label>
+          </div>
+          
+          <div class="card">
+          <label class="item item-input">
+            <span class="input-label">Student</span>
+	          <input type="text" 
+              placeholder="Choose Student"
+              ng-model="data.student.name"
+              name="student" 
+              ng-click="chooseStudent()">
+	        </label>
+          </div>
+          
+		<div class="card">
+			<label class="item item-input">
+          <span class="input-label">From date</span>
+	          <input type="text" 
+	          placeholder="Choose From Date" 
+	          ng-model="datepickerfrom" 
+	          name="datepicker" 
+	          ng-click="opendateModal(1)" >
+	        </label>
+	    </div>
+    <div class="card">
+			<label class="item item-input">
+        <span class="input-label">To date</span>
+	          <input type="text" 
+	          placeholder="Choose To Date" 
+	          ng-model="datepicker" 
+	          name="datepicker" 
+	          ng-click="opendateModal(2)">
+	        </label>
+	    </div>    
+     </div>
+   </div>
+  -->
+	</ion-content>
+  
+  <script id="studentPopup.html" type="text/ng-template">    
+    <label class="item item-radio" ng-repeat="item in list">
+      <input type="radio" name="group" ng-model="data.student" ng-value="item" ng-click="closeStudentPopup()">
+      <div class="item-content">{{ item.name }}</div>
+      <i class="radio-icon ion-checkmark"></i>
+    </label>
+  </script>
+  
+  <script id="leavePopup.html" type="text/ng-template">    
+    <label class="item item-radio" ng-repeat="leaveType in leaveTypes">
+      <input type="radio" name="group" ng-model="data.leaveType" ng-value="leaveType.title" 
+      ng-click="closeLeaveTypePopup()">
+      <div class="item-content">{{ leaveType.title }}</div>
+      <i class="radio-icon ion-checkmark"></i>
+    </label>
+  </script>
+  
+</ion-view>
+
+

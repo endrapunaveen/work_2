@@ -1,0 +1,81 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.99406909942627,
+          77.72931671142578,
+          0
+        ]
+      },
+      "properties": {
+        "name": "Position 1",
+        "styleUrl": "#style8",
+        "styleHash": "43da3fc5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.96406909942627,
+          77.71931671142578,
+          0
+        ]
+      },
+      "properties": {
+        "name": "Position 2",
+        "styleUrl": "#style7",
+        "styleHash": "32db6ba6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9845,
+          77.728,
+          0
+        ]
+      },
+      "properties": {
+        "name": "Position 3",
+        "styleUrl": "#style1",
+        "styleHash": "-331d8d14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.99406909942627,
+            77.72931671142578,
+            0
+          ],
+          [
+            12.96406909942627,
+            77.71931671142578,
+            0
+          ],
+          [
+            12.9845,
+            77.728,
+            0
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Route 1",
+        "styleUrl": "#style9",
+        "styleHash": "-34735958"
+      }
+    }
+  ]
+}

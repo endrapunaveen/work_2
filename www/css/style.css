@@ -1,0 +1,394 @@
+/* Empty. Add your own CSS if you like */
+
+/*textarea {
+  height:auto;
+  max-width:600px;
+  color:#999;
+  font-weight:400;
+  font-size:30px;
+  font-family:'Ubuntu', Helvetica, Arial, sans-serif;
+  
+  width:100%;
+  background:#fff;
+  border-radius:3px;
+
+  line-height:2em;
+  border:none;
+  box-shadow:0px 0px 5px 1px rgba(0,0,0,0.1);
+  padding:10px;
+}
+
+// * {
+  -webkit-font-smoothing:antialiased !important;
+}
+
+*/
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  height: 100%;
+}
+
+#profile-bg {
+        position: fixed;
+        left: 0;
+        top: 44px;
+        width: 100%;
+        height: 150px;
+
+   /*     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/bg.jpg') no-repeat transparent;*/
+        background-size: 100%;
+        background-position: 50% 20%;
+
+        text-align: center;
+      }
+
+      #content {
+        position: relative;
+        margin-top: 150px;
+        background-color: white;
+        box-shadow: 0px -1px 10px rgba(0,0,0,0.4);
+        padding-top: 200px;
+      }
+
+      #profile-info {
+        position: absolute;
+        top: -95px;
+        width: 100%;
+        z-index: 2;
+        text-align: center;
+      }
+      #profile-name {
+        color: #444;
+        font-size: 26px;
+      }
+      #profile-description {
+        font-size: 15px;
+        color: #888;
+      }
+      #profile-description a {
+        color: #888;
+      }
+
+      #profile-image {
+        display: block;
+        border-radius: 100px;
+        border: 1px solid #fff;
+        width: 128px;
+        height: 128px;
+        margin: 30px auto 0;
+        box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+      }
+
+      .list-item-content {
+        padding: 5px;
+      }
+
+      .list-item {
+        color: #666666;
+      }
+
+      .post {
+        color: #444;
+      }
+
+      .request-time {
+        position: absolute;
+        right: 15px;
+        top: 1px;
+        margin-left: 5px;
+        font-size: 11px;
+        color: #888;
+      }
+
+      .item-body {
+        border-top: none;
+        padding-left: 15px;
+        padding-top: 1px;
+      }
+
+      .item-avatar {
+        border-bottom: none;
+        padding-bottom: 5px;
+      }
+      
+      .card, .list-inset {
+        margin: 0px;
+      }      
+      
+      .request-status {
+        position: absolute;
+        left: 70px;
+        top: -3px;
+        font-size: 11px;
+        color: #888;
+      }
+
+      .request-status-list {
+        position: absolute;
+        left: 15px;
+        top: -3px;
+        font-size: 11px;
+        color: #888;
+      }
+
+      .post-profile-image {
+        display: inline-block;
+        vertical-align: top;
+        width: 48px;
+        height: 48px;
+        margin-right: 10px;
+      }
+      .post-options {
+        position: absolute;
+        font-size: 16px;
+        right: 5px;
+        bottom: 5px;
+        color: #888;
+        margin-top: 1px;
+      }
+
+ .small {
+  /* color: #999; */
+   font-size: 11px;
+   font-weight: bold;
+ }
+
+ .small-normal {
+  /* color: #999; */
+   font-size: 12px;   
+   font-weight: normal;
+ }
+
+ .leave-content {
+  /* color: #999; */
+   font-size: 12px; 
+   margin-right: 5px;
+   
+ }
+
+.small-user {
+  color: #1D68D8; 
+   font-size: 11px;
+   font-weight: bold;
+  
+ }
+
+.small-status-right {
+  color: #1D68D8; 
+  font-size: 11px;
+  font-weight: bold;
+ }
+
+ .action-button {
+  float: right;  
+ }
+
+.action {
+  position: absolute;
+  right: 10px;
+  margin-left: 1em;
+  color: #1D68D8; 
+  font-size: 11px;
+  font-weight: bold;
+  
+  
+ }
+
+/*
+.list .item
+{
+border-top: 0px;
+border-left: 0px;
+border-right: 0px;
+border-bottom: 2px;
+}
+*/
+
+.comments-user {
+  position: absolute;
+  left: 5px;
+  top: -3px;
+  font-size: 11px;
+  color: #888;
+}
+
+.leave-options {
+    position: absolute;
+    font-size: 13px;
+    right: 5px;
+    bottom: 5px;
+    color: #888;
+  }
+
+textarea {
+min-height: 20px;
+overflow-y: auto;
+word-wrap:break-word
+}
+
+.item-center {
+text-align: center;
+color: #999;
+font-size: 90%;
+
+}
+
+.item-right {
+  float: right;
+}
+
+/** For the task list header columns and tasks **/
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: none;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.wrap    {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 320px) {
+
+    .flex-container.wrap > div{
+        width: 50%;
+        max-width: 50%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+
+}
+
+@media (min-width: 321px) {
+    .flex-container.wrap > div{
+        width: 33%;
+        max-width: 33%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 480px) {
+    .flex-container.wrap > div{
+        width: 25%;
+        max-width: 25%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 640px) {
+    .flex-container.wrap > div{
+        width: 20%;
+        max-width: 20%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 960px) {
+    .flex-container.wrap > div{
+        width: 15%;
+        max-width: 15%;
+        text-overflow: '';
+        white-space:nowrap;
+        overflow: hidden;
+    }
+}
+
+.low-pad-item {
+    padding: 0;
+    margin: 0;
+}
+
+.col-header {
+    font-weight: bold;
+}
+
+.column {
+    text-overflow: '';
+    white-space:nowrap;
+    overflow: hidden;
+    max-width: 87%;
+    float: left;
+    padding: 2px 5px;
+}
+
+.col-header > .column {
+    padding: 5px 5px;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.column-sort {
+    min-width:13%;
+    float: right;
+    text-align: right;
+    padding-right: 2px;
+}
+
+
+/* */
+
+.messages {
+  margin:0;
+  padding:0;
+  list-style-type:none;
+}
+
+.messages li {
+  display:block;
+  clear:both;
+  max-width:50%;
+  margin:0 0 1rem 0;
+  padding:0;
+}
+
+.messages li:nth-child(even) {
+  float:right;
+}
+
+.messages li:nth-child(even) img {
+  float:right;
+}
+
+.messages p {
+  border-radius:.75rem;
+  background:#e6e5eb;
+  color:#383641;
+  padding:.6875rem;
+  margin:0;
+  font-size:.875rem;
+}
+
+.messages li:nth-child(even) p {
+  background:#158ffe;
+  color:#fff;
+}
+
+.messages img {
+  display:block;
+  max-width:65%;
+  border-radius:.75rem;
+}
+

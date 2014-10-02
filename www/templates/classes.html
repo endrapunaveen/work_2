@@ -1,0 +1,26 @@
+<ion-view title="Classes"  ng-controller="ClassesCtrl as vm">
+  <ion-nav-buttons side="right">
+    <a ui-sref="app.newclass" class="button button-icon ion-plus-round"></a>     
+  </ion-nav-buttons>
+  
+   <ion-content> 
+    <ion-list>
+      <ion-item ng-repeat="class in vm.classes" href="#/app/class/{{class._id}}" class="item-text-wrap item-icon-right">
+        <h2> {{class.groupDesc}}</h3>
+        <h3>School : {{class.school}}</h3> 
+        
+       
+
+        <i class="icon ion-ios7-arrow-right icon-accessory"></i>         
+      
+      <!--  <span 
+          ng-class="{true: 'badge badge-energized', false: 'badge badge-balanced'}[vm.getStatusClass('{{leave.status}}')]"> -->
+        <span>
+          {{clas.status}}
+        </span>           
+         
+      </ion-item>
+    </ion-list>
+  </ion-content> 
+</ion-view>
+

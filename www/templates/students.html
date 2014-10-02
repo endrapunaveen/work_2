@@ -1,0 +1,28 @@
+<ion-view title="Students"  ng-controller="StudentsCtrl as vm">
+  <ion-nav-buttons side="right">
+    <a ui-sref="app.datepicker" class="button button-icon ion-plus-round"></a>     
+  </ion-nav-buttons>
+  
+  <ion-content> 
+    <ion-item>
+      <h1>Students</h1>
+    </ion-item>
+    <!--
+    <ion-list>
+      <ion-item ng-repeat="leave in vm.leaves" href="#/app/leave/{{leave._id}}" class="item-text-wrap item-icon-right">
+        <h3>{{leave.student.name}}, {{leave.student.class}}</h3> 
+        <h4>{{leave.fromDate | date : 'MMM-dd'}} to {{leave.toDate | date : 'MMM-dd'}}, {{leave.leaveType}}</h4>
+        <div class="request-time">{{leave.requestedOn | relativets }} ago</div>
+
+        <i class="icon ion-ios7-arrow-right icon-accessory"></i>         
+      
+      
+        <span ng-class="vm.getStatusClass('{{leave.status}}')">
+          {{leave.status}}
+        </span>           
+         
+      </ion-item>
+    </ion-list>
+  -->
+  </ion-content> 
+</ion-view>
