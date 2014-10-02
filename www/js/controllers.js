@@ -255,6 +255,34 @@ angular.module('datepickerapp.controllers', ['pickadate'])
   $scope.$on('$destroy', function() {
     $scope.loginModal.remove();
   });
+
+
+      
+      var xmlhttp=new XMLHttpRequest();
+      xmlhttp.open("GET", "https://opentokrtc.com/cordova.json", false);
+      xmlhttp.send();
+      var data = JSON.parse( xmlhttp.response );
+	var apiKey = '45005242';
+      var sessionId = '1_MX40NTAwNTI0Mn5-MTQxMTgyMjAzODU5NH5WTEZyRktDOE5RaWNOOTlGTGQxaCs0Wnh-fg'; 
+      var token = 'T1==cGFydG5lcl9pZD00NTAwNTI0MiZzaWc9MTM5NzI3NTk5NzRhNWQxODg0MGZlM2YyMjdkMWVjOTM4Mzk2NDU0YTpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5UQXdOVEkwTW41LU1UUXhNVGd5TWpBek9EVTVOSDVXVEVaeVJrdERPRTVSYVdOT09UbEdUR1F4YUNzMFduaC1mZyZjcmVhdGVfdGltZT0xNDEyMjQ4NTQzJm5vbmNlPTAuMTI5MjExNjQ4ODk0MTcyMjU=';
+
+var publisher = TB.initPublisher(apiKey,'myPublisherDiv');
+
+      var session = TB.initSession( apiKey, sessionId ); 
+      session.on({
+        'streamCreated': function( event ){
+            var div = document.createElement('div');
+            div.setAttribute('id', 'stream' + event.stream.streamId);
+            document.body.appendChild(div);
+            session.subscribe( event.stream, div.id, {subscribeToAudio: false} );
+        }
+      });
+      session.connect(token, function(){
+        session.publish( publisher );
+      });
+
+  
+
 })
   
 
@@ -709,7 +737,7 @@ angular.module('datepickerapp.controllers', ['pickadate'])
     var myLatlng = new google.maps.LatLng(12.99406909942627, 77.72931671142578);
     //  var myLatlng = new google.maps.LatLng(30.2353412,-92.010498);
     var myOptions = {
-        zoom: 13,
+        zoom: 18,
         center: myLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
     }
@@ -728,23 +756,23 @@ angular.module('datepickerapp.controllers', ['pickadate'])
     
     window.setInterval(function() {
       $scope.getMarkers(); 
-  }, 2000);
+  }, 10000);
   }
   
  //}
 
 $scope.getMarkers = function() {
-    console.log('getMarkers');
+    //console.log('getMarkers');
     var res = Leaves.getMarkers();
     //$.get('/markers', {}, function(res,resp) {
     //  console.dir(res);
-  	console.log('>>>>> '+JSON.stringify(res));
+  	//console.log('>>>>> '+JSON.stringify(res));
       for(var i=0, len=res.length; i<len; i++) {
-        console.log('>>>>> id :'+res[i].id);
+        //console.log('>>>>> id :'+res[i].id);
 
         //Do we have this marker already?
         if(markerStore.hasOwnProperty(res[i].id)) {
-          console.log('just funna move it...');
+          //console.log('just funna move it...');
          markerStore[res[i].id].setPosition(new google.maps.LatLng(res[i].position.lat,res[i].position.long));
           // indra : start
           latLang = new google.maps.LatLng(res[i].position.lat,res[i].position.long)
@@ -766,13 +794,13 @@ $scope.getMarkers = function() {
           }); 
 
           markerStore[res[i].id] = marker;
-          console.log(marker.getTitle());
+          //console.log(marker.getTitle());
 
           //color = "#"+((1<<24)*Math.random()|0).toString(16);
 
           color = res[i].color;
 
-          console.log('color : '+color);
+          //console.log('color : '+color);
 
           polyStore[res[i].id] = new google.maps.Polyline({ map: map }); // indra
           polyStore[res[i].id].setOptions({strokeColor: color});
@@ -812,11 +840,11 @@ $scope.getMarkers = function() {
   });
   */
     if (path.getLength() === 0) {
-      console.log('If : '+Lat+', '+Lang);
+      //console.log('If : '+Lat+', '+Lang);
       path.push(latLang);
       poly.setPath(path);
     } else {
-      console.log('else : '+Lat+', '+Lang);
+      //console.log('else : '+Lat+', '+Lang);
       service.route({
         origin: path.getAt(path.getLength() - 1),
         destination: latLang,

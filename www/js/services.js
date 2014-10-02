@@ -19,23 +19,22 @@ angular.module('datepickerapp.services', [])
         /* Code for Google Maps  : Start */
         //initialize markerdata
         var markerData = [];
-        markerData.push({id:1, name:"Route 1", color:"blue", position:{"lat":12.99406909942627,"long":77.72931671142578}});
-        markerData.push({id:2 ,name:"Route 2", color:"green", position:{"lat":12.974431,"long":77.728777}});
+        markerData.push({id:1, name:"Route 1", color:"blue", position:{"time": "", "lat":12.99406909942627,"long":77.72931671142578}});
+        //markerData.push({id:2 ,name:"Route 2", color:"green", position:{"time": "", "lat":12.974431,"long":77.728777}});
         //markerData.push({id:3,name:"Truck 3", color:"red", position:{"lat":30.227925,"long":-91.996078}});
         //markerData.push({id:4,name:"Truck 4", color:"brown", position:{"lat":30.248391,"long":-91.999168}});
         //markerData.push({id:5,name:"Truck 5", color:"pink", position:{"lat":30.245425,"long":-92.020111}});
 
 
         function moveMarkers() {
-	        console.log('.... inside moveMarkers ...');
+	        //console.log('.... inside moveMarkers ...');
           for(var i=0, len=markerData.length; i<len; i++) {
-	  	    console.log('.... i ...' + i);
-          console.log("Date : "+ new Date() );
+	  	    //console.log('.... i ...' + i);
             var thisMarker = markerData[i];
             //adjust both lat and long a bit, unless we don't move
             if(shouldMove()) {
               //0.002 seems like a nice amount
-
+		thisMarker.position.time = new Date();
               thisMarker.position.lat += randRange(-0.0002,0.0002);
               thisMarker.position.long += randRange(-0.0002,0.0002);
             }
@@ -67,19 +66,17 @@ angular.module('datepickerapp.services', [])
         return {
 
             getMarkers: function () {
-              console.log('getMarkers .... Service');
+              //console.log('getMarkers .... Service');
               moveMarkers();
-
-              var url = "http://54.68.197.84:3000";
+              var url = "http://54.68.197.84:3000" + "/locations/";
 
               for(var i=0, len=markerData.length; i<len; i++) {
+		var date = '02102014';
                 var thisMarker = markerData[i];
                 var trackerNo = thisMarker.id;
-                $http.post(url+'/position', markerData, {
+                $http.post(url+trackerNo, thisMarker, {
                     method: 'POST',
-                    params: {
-                        token: trackerNo
-                    }
+		    params : { date: date }
                 });
                
               }
@@ -89,7 +86,7 @@ angular.module('datepickerapp.services', [])
             init: function () {
                 // get the deployment id
                 var id = $rootScope.getToken();
-                console.log(" id : "+id);
+                //console.log(" id : "+id);
               //var url = "http://seshu-137289.apse1.nitrousbox.com";
               var url = "http://54.68.197.84:3000";
              

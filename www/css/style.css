@@ -29,6 +29,8 @@
   height: 100%;
 }
 
+#myPublisherDiv {float:right;, position:fixed;}
+
 .scroll {
   height: 100%;
 }
