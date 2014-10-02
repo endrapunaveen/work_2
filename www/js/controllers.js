@@ -257,7 +257,7 @@ angular.module('datepickerapp.controllers', ['pickadate'])
   });
 
 
-      
+  /*    
       var xmlhttp=new XMLHttpRequest();
       xmlhttp.open("GET", "https://opentokrtc.com/cordova.json", false);
       xmlhttp.send();
@@ -280,7 +280,7 @@ var publisher = TB.initPublisher(apiKey,'myPublisherDiv');
       session.connect(token, function(){
         session.publish( publisher );
       });
-
+*/
   
 
 })
